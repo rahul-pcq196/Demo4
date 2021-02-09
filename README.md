@@ -1,2 +1,2 @@
 # Demo4
-ToDo list app using Core data
+Notes app using Core data
