@@ -66,13 +66,50 @@
                     <view key="view" contentMode="scaleToFill" id="IeD-ma-mhP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xzS-Wv-o0C">
+                                <rect key="frame" x="16" y="20" width="343" height="420"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="420" id="vBe-As-hf6"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFT-bw-DJx">
+                                <rect key="frame" x="16" y="474" width="343" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dei-pa-lbY"/>
+                                </constraints>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="userHandle:" destination="fgc-tO-kTY" eventType="touchUpInside" id="3UR-jv-rGa"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="cxg-Cb-2bt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wFT-bw-DJx" firstAttribute="top" secondItem="xzS-Wv-o0C" secondAttribute="bottom" constant="34" id="JdS-wj-9zd"/>
+                            <constraint firstItem="wFT-bw-DJx" firstAttribute="leading" secondItem="cxg-Cb-2bt" secondAttribute="leading" constant="16" id="YVR-fj-nUe"/>
+                            <constraint firstItem="cxg-Cb-2bt" firstAttribute="trailing" secondItem="xzS-Wv-o0C" secondAttribute="trailing" constant="16" id="cXn-EW-GmG"/>
+                            <constraint firstItem="cxg-Cb-2bt" firstAttribute="trailing" secondItem="wFT-bw-DJx" secondAttribute="trailing" constant="16" id="oB1-Yq-Nrg"/>
+                            <constraint firstItem="xzS-Wv-o0C" firstAttribute="top" secondItem="cxg-Cb-2bt" secondAttribute="top" constant="20" id="qEL-4n-6d3"/>
+                            <constraint firstItem="xzS-Wv-o0C" firstAttribute="leading" secondItem="cxg-Cb-2bt" secondAttribute="leading" constant="16" id="u9Z-vz-mez"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnSave" destination="wFT-bw-DJx" id="gju-4b-y6z"/>
+                        <outlet property="txtvwNote" destination="xzS-Wv-o0C" id="njl-kW-vPW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVf-ee-Q16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1601" y="99"/>
+            <point key="canvasLocation" x="1600.8" y="98.50074962518741"/>
         </scene>
         <!--Notes List View Controller-->
         <scene sceneID="ahB-ST-pR2">
@@ -83,26 +120,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vK9-I2-kEB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="612"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vzS-7k-NPN" id="YsY-UJ-jxA"/>
                                     <outlet property="delegate" destination="vzS-7k-NPN" id="fEW-Z4-hAY"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tIO-fI-Ksc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="B84-Ng-QgS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vK9-I2-kEB" firstAttribute="leading" secondItem="B84-Ng-QgS" secondAttribute="leading" id="9Wz-sD-eWW"/>
-                            <constraint firstItem="vK9-I2-kEB" firstAttribute="bottom" secondItem="B84-Ng-QgS" secondAttribute="bottom" id="B6t-Ol-c6x"/>
-                            <constraint firstItem="vK9-I2-kEB" firstAttribute="top" secondItem="B84-Ng-QgS" secondAttribute="top" id="WT4-8V-bgx"/>
-                            <constraint firstItem="vK9-I2-kEB" firstAttribute="trailing" secondItem="B84-Ng-QgS" secondAttribute="trailing" id="qOO-1j-X03"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="leading" secondItem="B84-Ng-QgS" secondAttribute="leading" id="7Z2-hm-SNc"/>
+                            <constraint firstItem="tIO-fI-Ksc" firstAttribute="leading" secondItem="B84-Ng-QgS" secondAttribute="leading" id="9xS-ef-aTq"/>
+                            <constraint firstItem="tIO-fI-Ksc" firstAttribute="top" secondItem="B84-Ng-QgS" secondAttribute="top" id="Bip-4b-vML"/>
+                            <constraint firstItem="tIO-fI-Ksc" firstAttribute="trailing" secondItem="B84-Ng-QgS" secondAttribute="trailing" id="E9n-b1-zAr"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="top" secondItem="B84-Ng-QgS" secondAttribute="top" constant="55" id="PIq-p8-0Od"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="bottom" secondItem="B84-Ng-QgS" secondAttribute="bottom" id="VTj-ef-quF"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="top" secondItem="tIO-fI-Ksc" secondAttribute="bottom" id="aMO-wg-x5I"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="trailing" secondItem="B84-Ng-QgS" secondAttribute="trailing" id="iCI-Xw-XxK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YYI-yH-d3j"/>
                     <connections>
                         <outlet property="tblNotes" destination="vK9-I2-kEB" id="1no-Rw-6Fn"/>
+                        <outlet property="txtsearch" destination="tIO-fI-Ksc" id="z17-XH-vdN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXz-pN-R2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,6 +157,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

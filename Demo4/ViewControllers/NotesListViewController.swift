@@ -11,14 +11,11 @@ import CoreData
 class NotesListViewController: UIViewController {
     
     @IBOutlet weak var tblNotes: UITableView!
+    @IBOutlet weak var txtsearch: UISearchBar!
 
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var notes: [Notes]? = []
-    var selectedCategory: Category?{
-        didSet{
-            self.fetchData()
-        }
-    }
+    var selectedCategory: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +30,17 @@ class NotesListViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = addBarButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.fetchData()
+    }
+    
     @objc func addNote(){
-        print("Add note")
+        
+        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: "EditNoteViewController") as! EditNoteViewController
+        vc.selectedCategory = self.selectedCategory
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // to fetch data from Coredata
@@ -45,6 +51,7 @@ class NotesListViewController: UIViewController {
         
         do {
             try notes = managedContext.fetch(request)
+            self.tblNotes.reloadData()
         }catch {
             print("Error")
         }
@@ -66,6 +73,10 @@ extension NotesListViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+         
+    }
     
 }
 
