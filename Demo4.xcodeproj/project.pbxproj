@@ -16,6 +16,7 @@
 		55BFDEB225D24A9C005DE1E6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEB025D24A9C005DE1E6 /* DataModel.xcdatamodeld */; };
 		55BFDEB725D255A5005DE1E6 /* CategoryTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEB625D255A5005DE1E6 /* CategoryTblCell.swift */; };
 		55BFDEBA25D255DA005DE1E6 /* CategoryTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BFDEB925D255DA005DE1E6 /* CategoryTblCell.xib */; };
+		55BFDEBF25D2686F005DE1E6 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEBE25D2686F005DE1E6 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		55BFDEB125D24A9C005DE1E6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		55BFDEB625D255A5005DE1E6 /* CategoryTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTblCell.swift; sourceTree = "<group>"; };
 		55BFDEB925D255DA005DE1E6 /* CategoryTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTblCell.xib; sourceTree = "<group>"; };
+		55BFDEBE25D2686F005DE1E6 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				55BFDE8F25D23A9F005DE1E6 /* AppDelegate.swift */,
 				55BFDEA625D23B2C005DE1E6 /* ViewControllers */,
+				55BFDEBD25D26854005DE1E6 /* Model */,
 				55BFDEB525D25576005DE1E6 /* Cells */,
 				55BFDEA725D23B42005DE1E6 /* Views */,
 				55BFDEAF25D24A62005DE1E6 /* Data Model */,
@@ -106,6 +109,14 @@
 				55BFDEB925D255DA005DE1E6 /* CategoryTblCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		55BFDEBD25D26854005DE1E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55BFDEBE25D2686F005DE1E6 /* Util.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55BFDEB725D255A5005DE1E6 /* CategoryTblCell.swift in Sources */,
+				55BFDEBF25D2686F005DE1E6 /* Util.swift in Sources */,
 				55BFDE9425D23A9F005DE1E6 /* CategoryListViewController.swift in Sources */,
 				55BFDEB225D24A9C005DE1E6 /* DataModel.xcdatamodeld in Sources */,
 				55BFDEAC25D243A9005DE1E6 /* NotesListViewController.swift in Sources */,
