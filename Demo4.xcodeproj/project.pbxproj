@@ -17,6 +17,9 @@
 		55BFDEB725D255A5005DE1E6 /* CategoryTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEB625D255A5005DE1E6 /* CategoryTblCell.swift */; };
 		55BFDEBA25D255DA005DE1E6 /* CategoryTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BFDEB925D255DA005DE1E6 /* CategoryTblCell.xib */; };
 		55BFDEBF25D2686F005DE1E6 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEBE25D2686F005DE1E6 /* Util.swift */; };
+		55BFDEC225D29C20005DE1E6 /* NoteTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEC125D29C20005DE1E6 /* NoteTblCell.swift */; };
+		55BFDEC525D29C43005DE1E6 /* NoteTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55BFDEC425D29C43005DE1E6 /* NoteTblCell.xib */; };
+		55BFDEC825D2A133005DE1E6 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEC725D2A133005DE1E6 /* EditNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		55BFDEB625D255A5005DE1E6 /* CategoryTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTblCell.swift; sourceTree = "<group>"; };
 		55BFDEB925D255DA005DE1E6 /* CategoryTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTblCell.xib; sourceTree = "<group>"; };
 		55BFDEBE25D2686F005DE1E6 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		55BFDEC125D29C20005DE1E6 /* NoteTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTblCell.swift; sourceTree = "<group>"; };
+		55BFDEC425D29C43005DE1E6 /* NoteTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTblCell.xib; sourceTree = "<group>"; };
+		55BFDEC725D2A133005DE1E6 /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 			children = (
 				55BFDE9325D23A9F005DE1E6 /* CategoryListViewController.swift */,
 				55BFDEAB25D243A9005DE1E6 /* NotesListViewController.swift */,
+				55BFDEC725D2A133005DE1E6 /* EditNoteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -107,6 +114,8 @@
 			children = (
 				55BFDEB625D255A5005DE1E6 /* CategoryTblCell.swift */,
 				55BFDEB925D255DA005DE1E6 /* CategoryTblCell.xib */,
+				55BFDEC125D29C20005DE1E6 /* NoteTblCell.swift */,
+				55BFDEC425D29C43005DE1E6 /* NoteTblCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55BFDEBA25D255DA005DE1E6 /* CategoryTblCell.xib in Resources */,
+				55BFDEC525D29C43005DE1E6 /* NoteTblCell.xib in Resources */,
 				55BFDE9C25D23AA0005DE1E6 /* LaunchScreen.storyboard in Resources */,
 				55BFDE9925D23AA0005DE1E6 /* Assets.xcassets in Resources */,
 				55BFDE9725D23A9F005DE1E6 /* Main.storyboard in Resources */,
@@ -192,10 +202,12 @@
 			files = (
 				55BFDEB725D255A5005DE1E6 /* CategoryTblCell.swift in Sources */,
 				55BFDEBF25D2686F005DE1E6 /* Util.swift in Sources */,
+				55BFDEC825D2A133005DE1E6 /* EditNoteViewController.swift in Sources */,
 				55BFDE9425D23A9F005DE1E6 /* CategoryListViewController.swift in Sources */,
 				55BFDEB225D24A9C005DE1E6 /* DataModel.xcdatamodeld in Sources */,
 				55BFDEAC25D243A9005DE1E6 /* NotesListViewController.swift in Sources */,
 				55BFDE9025D23A9F005DE1E6 /* AppDelegate.swift in Sources */,
+				55BFDEC225D29C20005DE1E6 /* NoteTblCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

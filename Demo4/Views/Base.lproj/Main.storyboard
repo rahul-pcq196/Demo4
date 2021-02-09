@@ -59,6 +59,21 @@
             </objects>
             <point key="canvasLocation" x="132" y="99.400299850074973"/>
         </scene>
+        <!--Edit Note View Controller-->
+        <scene sceneID="cUw-Uv-z90">
+            <objects>
+                <viewController storyboardIdentifier="EditNoteViewController" id="fgc-tO-kTY" customClass="EditNoteViewController" customModule="Demo4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IeD-ma-mhP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cxg-Cb-2bt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVf-ee-Q16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1601" y="99"/>
+        </scene>
         <!--Notes List View Controller-->
         <scene sceneID="ahB-ST-pR2">
             <objects>
@@ -66,13 +81,33 @@
                     <view key="view" contentMode="scaleToFill" id="VVk-VO-jpA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vK9-I2-kEB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vzS-7k-NPN" id="YsY-UJ-jxA"/>
+                                    <outlet property="delegate" destination="vzS-7k-NPN" id="fEW-Z4-hAY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="B84-Ng-QgS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="leading" secondItem="B84-Ng-QgS" secondAttribute="leading" id="9Wz-sD-eWW"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="bottom" secondItem="B84-Ng-QgS" secondAttribute="bottom" id="B6t-Ol-c6x"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="top" secondItem="B84-Ng-QgS" secondAttribute="top" id="WT4-8V-bgx"/>
+                            <constraint firstItem="vK9-I2-kEB" firstAttribute="trailing" secondItem="B84-Ng-QgS" secondAttribute="trailing" id="qOO-1j-X03"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YYI-yH-d3j"/>
+                    <connections>
+                        <outlet property="tblNotes" destination="vK9-I2-kEB" id="1no-Rw-6Fn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXz-pN-R2G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="99"/>
+            <point key="canvasLocation" x="848.79999999999995" y="98.50074962518741"/>
         </scene>
     </scenes>
     <resources>
