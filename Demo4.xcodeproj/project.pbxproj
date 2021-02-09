@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55BFDE9025D23A9F005DE1E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDE8F25D23A9F005DE1E6 /* AppDelegate.swift */; };
-		55BFDE9225D23A9F005DE1E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDE9125D23A9F005DE1E6 /* SceneDelegate.swift */; };
-		55BFDE9425D23A9F005DE1E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDE9325D23A9F005DE1E6 /* ViewController.swift */; };
+		55BFDE9425D23A9F005DE1E6 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDE9325D23A9F005DE1E6 /* CategoryListViewController.swift */; };
 		55BFDE9725D23A9F005DE1E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BFDE9525D23A9F005DE1E6 /* Main.storyboard */; };
 		55BFDE9925D23AA0005DE1E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BFDE9825D23AA0005DE1E6 /* Assets.xcassets */; };
 		55BFDE9C25D23AA0005DE1E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BFDE9A25D23AA0005DE1E6 /* LaunchScreen.storyboard */; };
@@ -18,8 +17,7 @@
 /* Begin PBXFileReference section */
 		55BFDE8C25D23A9F005DE1E6 /* Demo4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BFDE8F25D23A9F005DE1E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55BFDE9125D23A9F005DE1E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		55BFDE9325D23A9F005DE1E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55BFDE9325D23A9F005DE1E6 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		55BFDE9625D23A9F005DE1E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55BFDE9825D23AA0005DE1E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55BFDE9B25D23AA0005DE1E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,14 +55,29 @@
 			isa = PBXGroup;
 			children = (
 				55BFDE8F25D23A9F005DE1E6 /* AppDelegate.swift */,
-				55BFDE9125D23A9F005DE1E6 /* SceneDelegate.swift */,
-				55BFDE9325D23A9F005DE1E6 /* ViewController.swift */,
-				55BFDE9525D23A9F005DE1E6 /* Main.storyboard */,
+				55BFDEA625D23B2C005DE1E6 /* ViewControllers */,
+				55BFDEA725D23B42005DE1E6 /* Views */,
 				55BFDE9825D23AA0005DE1E6 /* Assets.xcassets */,
-				55BFDE9A25D23AA0005DE1E6 /* LaunchScreen.storyboard */,
 				55BFDE9D25D23AA0005DE1E6 /* Info.plist */,
 			);
 			path = Demo4;
+			sourceTree = "<group>";
+		};
+		55BFDEA625D23B2C005DE1E6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				55BFDE9325D23A9F005DE1E6 /* CategoryListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		55BFDEA725D23B42005DE1E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55BFDE9525D23A9F005DE1E6 /* Main.storyboard */,
+				55BFDE9A25D23AA0005DE1E6 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55BFDE9425D23A9F005DE1E6 /* ViewController.swift in Sources */,
+				55BFDE9425D23A9F005DE1E6 /* CategoryListViewController.swift in Sources */,
 				55BFDE9025D23A9F005DE1E6 /* AppDelegate.swift in Sources */,
-				55BFDE9225D23A9F005DE1E6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +307,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rahul.Demo4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,7 +325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rahul.Demo4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
