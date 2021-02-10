@@ -15,6 +15,7 @@ class NotesListViewController: UIViewController {
 
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var notes: [Notes]? = []
+    var arrFilteredNotes: [Notes]? = []
     var selectedCategory: Category?
     
     override func viewDidLoad() {
@@ -51,10 +52,12 @@ class NotesListViewController: UIViewController {
         
         do {
             try notes = managedContext.fetch(request)
+            arrFilteredNotes = notes
             self.tblNotes.reloadData()
         }catch {
             print("Error")
         }
+        
     }
     
 }
@@ -63,14 +66,14 @@ class NotesListViewController: UIViewController {
 extension NotesListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes!.count
+        return arrFilteredNotes!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTblCell", for: indexPath) as! NoteTblCell
-        cell.lblTitle.text = notes?[indexPath.row].title
-        cell.noteId = notes?[indexPath.row].id
+        cell.lblTitle.text = arrFilteredNotes?[indexPath.row].title
+        cell.noteId = arrFilteredNotes?[indexPath.row].id
         return cell
     }
     
@@ -85,7 +88,22 @@ extension NotesListViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
+// MARK: - Searchbar delegate functions
+extension NotesListViewController: UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if Util.isStringNull(srcString: searchText){
+            arrFilteredNotes = notes
+        } else {
+            let searchPredicate = NSPredicate(format: "title CONTAINS[C] %@", searchText)
+            arrFilteredNotes = (notes! as NSArray).filtered(using: searchPredicate) as? [Notes]
 
+        }
+        tblNotes.reloadData()
+        
+    }
+}
 
 
 

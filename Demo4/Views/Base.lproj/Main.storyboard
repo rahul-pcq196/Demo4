@@ -11,7 +11,6 @@
         <!--Navigation Controller-->
         <scene sceneID="HRR-qa-hLa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WtK-dx-984" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="g8i-iy-V1e" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iGN-GO-axN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -21,6 +20,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ejn-nd-Xad"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WtK-dx-984" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-654" y="99"/>
         </scene>
@@ -130,6 +130,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tIO-fI-Ksc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vzS-7k-NPN" id="oB0-jU-uie"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="B84-Ng-QgS"/>
