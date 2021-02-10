@@ -82,9 +82,9 @@
 				55BFDEB525D25576005DE1E6 /* Cells */,
 				55BFDEA725D23B42005DE1E6 /* Views */,
 				55BFDEAF25D24A62005DE1E6 /* Data Model */,
+				55BFDED725D3E29E005DE1E6 /* Supporting Files */,
 				55BFDE9825D23AA0005DE1E6 /* Assets.xcassets */,
 				55BFDE9D25D23AA0005DE1E6 /* Info.plist */,
-				55BFDED225D3DFCA005DE1E6 /* Localizable.strings */,
 			);
 			path = Demo4;
 			sourceTree = "<group>";
@@ -135,6 +135,14 @@
 				55BFDED425D3E003005DE1E6 /* Define.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		55BFDED725D3E29E005DE1E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55BFDED225D3DFCA005DE1E6 /* Localizable.strings */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
