@@ -17,7 +17,7 @@ class Util: NSObject {
 
     // to get particular storyboard name.
     class func getStoryboard() -> UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: nil)
+        return UIStoryboard(name: K.mainStoryboardName, bundle: nil)
     }
     
     // to check string is null or not.

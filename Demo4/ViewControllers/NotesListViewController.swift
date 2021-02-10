@@ -24,7 +24,7 @@ class NotesListViewController: UIViewController {
         self.title = selectedCategory?.name
         
         // register tableview cell
-        tblNotes.register(UINib(nibName: "NoteTblCell", bundle: .main), forCellReuseIdentifier: "NoteTblCell")
+        tblNotes.register(UINib(nibName: K.noteTblCellNibName, bundle: .main), forCellReuseIdentifier: K.noteTblCellIdentifire)
         
         // set Add button in navigation bar
         let addBarButtonItem = UIBarButtonItem(image: UIImage.add, style: .done, target: self, action: #selector(self.addNote))
@@ -39,7 +39,7 @@ class NotesListViewController: UIViewController {
     
     @objc func addNote(){
         
-        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: "EditNoteViewController") as! EditNoteViewController
+        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: K.editNoteViewControllerId) as! EditNoteViewController
         vc.selectedCategory = self.selectedCategory
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -71,7 +71,7 @@ extension NotesListViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTblCell", for: indexPath) as! NoteTblCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.noteTblCellIdentifire, for: indexPath) as! NoteTblCell
         cell.lblTitle.text = arrFilteredNotes?[indexPath.row].title
         cell.noteId = arrFilteredNotes?[indexPath.row].id
         return cell
@@ -80,7 +80,7 @@ extension NotesListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedCell = tableView.cellForRow(at: indexPath) as! NoteTblCell
-        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: "EditNoteViewController") as! EditNoteViewController
+        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: K.editNoteViewControllerId) as! EditNoteViewController
         vc.selectedNoteId = selectedCell.noteId
         vc.isEdit = true
         self.navigationController?.pushViewController(vc, animated: true)

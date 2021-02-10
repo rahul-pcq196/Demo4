@@ -20,7 +20,7 @@ class CategoryListViewController: UIViewController {
         super.viewDidLoad()
 
         // register tableview cell
-        tblCategory.register(UINib(nibName: "CategoryTblCell", bundle: .main), forCellReuseIdentifier: "CategoryTblCell")
+        tblCategory.register(UINib(nibName: K.categoryTblCellNibName, bundle: .main), forCellReuseIdentifier: K.categoryTblCellIdentifire)
         
         // set Add button in navigation bar
         let addBarButtonItem = UIBarButtonItem(image: UIImage.add, style: .done, target: self, action: #selector(self.addCategory))
@@ -86,9 +86,9 @@ class CategoryListViewController: UIViewController {
     // to configure alertview with text fields
     func presentAlertWithTF(){
         
-        alertWithTF = UIAlertController(title: "Add Category", message: "", preferredStyle: .alert)
+        alertWithTF = UIAlertController(title: localize(str: "add_category_title"), message: "", preferredStyle: .alert)
         
-        let add = UIAlertAction(title: "Add", style: .default) { (_ action) in
+        let add = UIAlertAction(title: localize(str: "add_txt"), style: .default) { (_ action) in
             
             let txtName = self.alertWithTF!.textFields![0] as UITextField
             
@@ -105,10 +105,10 @@ class CategoryListViewController: UIViewController {
         }
         
         alertWithTF!.addTextField { (textField) in
-            textField.placeholder = "Enter category name..."
+            textField.placeholder = "\(localize(str: "enter_category_name"))..."
         }
        
-        alertWithTF!.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        alertWithTF!.addAction(UIAlertAction(title: localize(str: "cancel_txt"), style: .destructive, handler: nil))
         alertWithTF!.addAction(add)
         
         self.present(alertWithTF!, animated: true, completion: nil)
@@ -126,14 +126,14 @@ extension CategoryListViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTblCell", for: indexPath) as! CategoryTblCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.categoryTblCellIdentifire, for: indexPath) as! CategoryTblCell
         cell.lblName.text = categories?[indexPath.row].name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: "NotesListViewController") as! NotesListViewController
+        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: K.notesListViewControllerId) as! NotesListViewController
         vc.selectedCategory = self.categories?[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }

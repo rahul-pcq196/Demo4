@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Demo4
+
+  Created by PCQ196 on 10/02/21.
+  
+*/
+
+"add_txt" = "Add";
+"cancel_txt" = "Cancel";
+"add_category_title" = "Add Category";
+"enter_category_name" = "Enter category name";
+
