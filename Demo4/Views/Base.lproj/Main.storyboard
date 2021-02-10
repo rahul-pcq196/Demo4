@@ -74,16 +74,36 @@
                                     <constraint firstAttribute="height" constant="420" id="vBe-As-hf6"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GI8-D2-AEk">
+                                <rect key="frame" x="16" y="474" width="166" height="50"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="userHandle:" destination="fgc-tO-kTY" eventType="touchUpInside" id="k4N-wB-uMY"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFT-bw-DJx">
-                                <rect key="frame" x="16" y="474" width="343" height="50"/>
+                                <rect key="frame" x="193" y="474" width="166" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="dei-pa-lbY"/>
-                                </constraints>
-                                <state key="normal" title="SAVE">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -94,15 +114,21 @@
                         <viewLayoutGuide key="safeArea" id="cxg-Cb-2bt"/>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wFT-bw-DJx" firstAttribute="top" secondItem="xzS-Wv-o0C" secondAttribute="bottom" constant="34" id="JdS-wj-9zd"/>
-                            <constraint firstItem="wFT-bw-DJx" firstAttribute="leading" secondItem="cxg-Cb-2bt" secondAttribute="leading" constant="16" id="YVR-fj-nUe"/>
+                            <constraint firstItem="wFT-bw-DJx" firstAttribute="width" secondItem="GI8-D2-AEk" secondAttribute="width" id="F8z-f2-lGX"/>
+                            <constraint firstItem="wFT-bw-DJx" firstAttribute="height" secondItem="GI8-D2-AEk" secondAttribute="height" id="I4F-cV-CUv"/>
+                            <constraint firstItem="wFT-bw-DJx" firstAttribute="top" secondItem="xzS-Wv-o0C" secondAttribute="bottom" constant="34" id="JGD-eQ-jXO"/>
+                            <constraint firstItem="GI8-D2-AEk" firstAttribute="top" secondItem="xzS-Wv-o0C" secondAttribute="bottom" constant="34" id="Wsm-kC-kMp"/>
                             <constraint firstItem="cxg-Cb-2bt" firstAttribute="trailing" secondItem="xzS-Wv-o0C" secondAttribute="trailing" constant="16" id="cXn-EW-GmG"/>
-                            <constraint firstItem="cxg-Cb-2bt" firstAttribute="trailing" secondItem="wFT-bw-DJx" secondAttribute="trailing" constant="16" id="oB1-Yq-Nrg"/>
+                            <constraint firstItem="GI8-D2-AEk" firstAttribute="height" secondItem="IeD-ma-mhP" secondAttribute="height" multiplier="0.0749625" id="dG5-Pf-kRd"/>
+                            <constraint firstItem="cxg-Cb-2bt" firstAttribute="trailing" secondItem="wFT-bw-DJx" secondAttribute="trailing" constant="16" id="fYf-eG-IZp"/>
+                            <constraint firstItem="GI8-D2-AEk" firstAttribute="width" secondItem="IeD-ma-mhP" secondAttribute="width" multiplier="0.442667" id="puZ-J2-CXX"/>
                             <constraint firstItem="xzS-Wv-o0C" firstAttribute="top" secondItem="cxg-Cb-2bt" secondAttribute="top" constant="20" id="qEL-4n-6d3"/>
+                            <constraint firstItem="GI8-D2-AEk" firstAttribute="leading" secondItem="cxg-Cb-2bt" secondAttribute="leading" constant="16" id="rcs-Eq-Cdc"/>
                             <constraint firstItem="xzS-Wv-o0C" firstAttribute="leading" secondItem="cxg-Cb-2bt" secondAttribute="leading" constant="16" id="u9Z-vz-mez"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnDelete" destination="GI8-D2-AEk" id="e1I-4U-Nko"/>
                         <outlet property="btnSave" destination="wFT-bw-DJx" id="gju-4b-y6z"/>
                         <outlet property="txtvwNote" destination="xzS-Wv-o0C" id="njl-kW-vPW"/>
                     </connections>
@@ -165,6 +191,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

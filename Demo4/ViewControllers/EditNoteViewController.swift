@@ -12,6 +12,7 @@ class EditNoteViewController: UIViewController {
 
     @IBOutlet weak var txtvwNote: UITextView!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var btnDelete: UIButton!
     
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var selectedCategory: Category?
@@ -27,6 +28,11 @@ class EditNoteViewController: UIViewController {
         
         if isEdit{
             setNote()
+            btnDelete.isUserInteractionEnabled = true
+            btnDelete.alpha = 1
+        } else {
+            btnDelete.isUserInteractionEnabled = false
+            btnDelete.alpha = 0.5
         }
     }
     
@@ -39,8 +45,18 @@ class EditNoteViewController: UIViewController {
             } else {
                 self.saveNewNote()
             }
-            
             self.navigationController?.popViewController(animated: true)
+            
+        } else if sender == btnDelete{
+            
+            let deleteAct = UIAlertAction(title: "Delete", style: .destructive) { (_ action) in
+                self.deleteNote()
+                self.navigationController?.popViewController(animated: true)
+            }
+            let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            
+            Alert.shared.ShowAlert(title: "Are you sure you want to delete this note ?", message: "", in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
+            
         }
     }
     
@@ -84,6 +100,22 @@ class EditNoteViewController: UIViewController {
         note.parentCategory = self.selectedCategory
         
         self.saveData()
+        
+    }
+    
+    // to delete current note
+    func deleteNote(){
+       
+        let fetchNote: NSFetchRequest<Notes> = Notes.fetchRequest()
+        fetchNote.predicate = NSPredicate(format: "id = %@", "\(self.selectedNoteId ?? 0)")
+        let results = try? managedContext.fetch(fetchNote)
+        
+        if results?.count != 0 && !Util.isStringNull(srcString: self.txtvwNote.text){
+            
+            let note = results?.first
+            managedContext.delete(note!)
+            self.saveData()
+        }
         
     }
     

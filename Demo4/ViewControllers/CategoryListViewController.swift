@@ -71,16 +71,16 @@ class CategoryListViewController: UIViewController {
             
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let managedContext = appDelegate.persistentContainer.viewContext
-            do {
-                let items = try managedContext.fetch(Category.fetchRequest()) as! [NSManagedObject]
-                for item in items {
-                    managedContext.delete(item)
-                }
-                try managedContext.save()
-                
-            } catch {
-                print("Error in deleting...")
+        do {
+            let items = try managedContext.fetch(Category.fetchRequest()) as! [NSManagedObject]
+            for item in items {
+                managedContext.delete(item)
             }
+            try managedContext.save()
+            
+        } catch {
+            print("Error in deleting...")
+        }
     }
     
     // to configure alertview with text fields

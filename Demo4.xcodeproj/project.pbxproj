@@ -23,6 +23,8 @@
 		55BFDECB25D3DA06005DE1E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDECA25D3DA06005DE1E6 /* Constants.swift */; };
 		55BFDED025D3DFCA005DE1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55BFDED225D3DFCA005DE1E6 /* Localizable.strings */; };
 		55BFDED525D3E003005DE1E6 /* Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDED425D3E003005DE1E6 /* Define.swift */; };
+		55BFDEDB25D3FE3B005DE1E6 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEDA25D3FE3B005DE1E6 /* Extension.swift */; };
+		55BFDEDE25D400F3005DE1E6 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFDEDD25D400F3005DE1E6 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		55BFDECA25D3DA06005DE1E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		55BFDED125D3DFCA005DE1E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55BFDED425D3E003005DE1E6 /* Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Define.swift; sourceTree = "<group>"; };
+		55BFDEDA25D3FE3B005DE1E6 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		55BFDEDD25D400F3005DE1E6 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 				55BFDE8F25D23A9F005DE1E6 /* AppDelegate.swift */,
 				55BFDEA625D23B2C005DE1E6 /* ViewControllers */,
 				55BFDEBD25D26854005DE1E6 /* Model */,
+				55BFDED925D3FE1E005DE1E6 /* Extension */,
 				55BFDEB525D25576005DE1E6 /* Cells */,
 				55BFDEA725D23B42005DE1E6 /* Views */,
 				55BFDEAF25D24A62005DE1E6 /* Data Model */,
@@ -130,6 +135,7 @@
 		55BFDEBD25D26854005DE1E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				55BFDEDD25D400F3005DE1E6 /* Alert.swift */,
 				55BFDEBE25D2686F005DE1E6 /* Util.swift */,
 				55BFDECA25D3DA06005DE1E6 /* Constants.swift */,
 				55BFDED425D3E003005DE1E6 /* Define.swift */,
@@ -143,6 +149,14 @@
 				55BFDED225D3DFCA005DE1E6 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55BFDED925D3FE1E005DE1E6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				55BFDEDA25D3FE3B005DE1E6 /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +236,9 @@
 				55BFDEBF25D2686F005DE1E6 /* Util.swift in Sources */,
 				55BFDEC825D2A133005DE1E6 /* EditNoteViewController.swift in Sources */,
 				55BFDE9425D23A9F005DE1E6 /* CategoryListViewController.swift in Sources */,
+				55BFDEDB25D3FE3B005DE1E6 /* Extension.swift in Sources */,
 				55BFDEB225D24A9C005DE1E6 /* DataModel.xcdatamodeld in Sources */,
+				55BFDEDE25D400F3005DE1E6 /* Alert.swift in Sources */,
 				55BFDEAC25D243A9005DE1E6 /* NotesListViewController.swift in Sources */,
 				55BFDE9025D23A9F005DE1E6 /* AppDelegate.swift in Sources */,
 				55BFDEC225D29C20005DE1E6 /* NoteTblCell.swift in Sources */,
