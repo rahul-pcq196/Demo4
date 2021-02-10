@@ -33,11 +33,18 @@ class EditNoteViewController: UIViewController {
     @IBAction func userHandle(_ sender: UIButton){
         
         if sender == btnSave{
-            self.saveNote()
+            
+            if isEdit{
+                self.saveExsitingNote()
+            } else {
+                self.saveNewNote()
+            }
+            
             self.navigationController?.popViewController(animated: true)
         }
     }
     
+    // to set note title of selected note in textview
     func setNote(){
         
         let fetchNote: NSFetchRequest<Notes> = Notes.fetchRequest()
@@ -52,7 +59,24 @@ class EditNoteViewController: UIViewController {
         
     }
     
-    func saveNote(){
+    // to update existing note
+    func saveExsitingNote(){
+        
+        let fetchNote: NSFetchRequest<Notes> = Notes.fetchRequest()
+        fetchNote.predicate = NSPredicate(format: "id = %@", "\(self.selectedNoteId ?? 0)")
+        let results = try? managedContext.fetch(fetchNote)
+        
+        if results?.count != 0 && !Util.isStringNull(srcString: self.txtvwNote.text){
+            
+            let note = results?.first
+            note?.title = self.txtvwNote.text
+            self.saveData()
+        }
+        
+    }
+    
+    // to save new note
+    func saveNewNote(){
         
         let note = Notes(context: managedContext)
         note.title = self.txtvwNote.text

@@ -25,15 +25,14 @@ class CategoryListViewController: UIViewController {
         // set Add button in navigation bar
         let addBarButtonItem = UIBarButtonItem(image: UIImage.add, style: .done, target: self, action: #selector(self.addCategory))
         self.navigationItem.rightBarButtonItem = addBarButtonItem
-        
-        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         fetchData()
-        // deleteAllData()
+        //deleteAllData()
     }
     
     @objc func addCategory(){
