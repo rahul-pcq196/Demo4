@@ -10,6 +10,7 @@ import UIKit
 class NoteTblCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
+    var noteId : Int16?
     
     override func awakeFromNib() {
         super.awakeFromNib()

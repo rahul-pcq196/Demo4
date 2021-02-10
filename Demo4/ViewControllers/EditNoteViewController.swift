@@ -28,7 +28,6 @@ class EditNoteViewController: UIViewController {
         if isEdit{
             setNote()
         }
-        
     }
     
     @IBAction func userHandle(_ sender: UIButton){
@@ -41,15 +40,16 @@ class EditNoteViewController: UIViewController {
     
     func setNote(){
         
-        let request: NSFetchRequest<Notes> = Notes.fetchRequest()
-        request.predicate = NSPredicate(format: "id MATCHES %@", selectedNoteId ?? 0)
+        let fetchNote: NSFetchRequest<Notes> = Notes.fetchRequest()
+        fetchNote.predicate = NSPredicate(format: "id = %@", "\(self.selectedNoteId ?? 0)")
+        let results = try? managedContext.fetch(fetchNote)
         
-        do {
-            let note = try managedContext.fetch(request)
-            self.txtvwNote.text = note[0].title
-        }catch {
-            print("Error")
+        if results?.count != 0{
+            
+            let note = results?.first
+            self.txtvwNote.text = note?.title
         }
+        
     }
     
     func saveNote(){

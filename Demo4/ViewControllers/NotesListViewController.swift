@@ -70,12 +70,17 @@ extension NotesListViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteTblCell", for: indexPath) as! NoteTblCell
         cell.lblTitle.text = notes?[indexPath.row].title
+        cell.noteId = notes?[indexPath.row].id
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-         
+        let selectedCell = tableView.cellForRow(at: indexPath) as! NoteTblCell
+        let vc = Util.getStoryboard().instantiateViewController(withIdentifier: "EditNoteViewController") as! EditNoteViewController
+        vc.selectedNoteId = selectedCell.noteId
+        vc.isEdit = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
