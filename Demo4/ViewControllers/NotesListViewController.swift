@@ -38,8 +38,8 @@ class NotesListViewController: UIViewController {
         self.fetchData()
         
         
-        //MARK: - Tmp
-        self.fetchAllNotes()
+        //MARK: uncomment following line to print all notes
+        //self.fetchAllNotes()
     }
     
     @objc func addNote(){
@@ -65,21 +65,22 @@ class NotesListViewController: UIViewController {
         
     }
     
-    func fetchAllNotes(){
-        
-        do {
-            
-            let allnotes = try managedContext.fetch(Notes.fetchRequest()) as! [Notes]
-            for note in allnotes{
-                print(note.title as Any)
-            }
-            
-        } catch let error as NSError {
-            
-            print("Could not fetch. \(error), \(error.userInfo)")
-            
-        }
-    }
+    //MARK:- To fetch all notes without category filter
+//    func fetchAllNotes(){
+//
+//        do {
+//
+//            let allnotes = try managedContext.fetch(Notes.fetchRequest()) as! [Notes]
+//            for note in allnotes{
+//                print(note.title as Any)
+//            }
+//
+//        } catch let error as NSError {
+//
+//            print("Could not fetch. \(error), \(error.userInfo)")
+//
+//        }
+//    }
     
 }
 

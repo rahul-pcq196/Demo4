@@ -11,3 +11,5 @@
 "add_category_title" = "Add Category";
 "enter_category_name" = "Enter category name";
 
+"delete_txt" =  "Delete";
+"sure_to_delete_title" = "Are you sure you want to delete this note ?";

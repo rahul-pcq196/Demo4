@@ -67,22 +67,22 @@ class CategoryListViewController: UIViewController {
         
     }
     
-    // to delete all data from coredata
-    func deleteAllData(){
-            
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        do {
-            let items = try managedContext.fetch(Category.fetchRequest()) as! [NSManagedObject]
-            for item in items {
-                managedContext.delete(item)
-            }
-            try managedContext.save()
-            
-        } catch {
-            print("Error in deleting...")
-        }
-    }
+    // MARK: to delete all Categories at once
+//    func deleteAllData(){
+//
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+//        let managedContext = appDelegate.persistentContainer.viewContext
+//        do {
+//            let items = try managedContext.fetch(Category.fetchRequest()) as! [NSManagedObject]
+//            for item in items {
+//                managedContext.delete(item)
+//            }
+//            try managedContext.save()
+//
+//        } catch {
+//            print("Error in deleting...")
+//        }
+//    }
     
     // to delete perticular category
     func deleteCategory(at index: Int){

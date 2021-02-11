@@ -49,13 +49,13 @@ class EditNoteViewController: UIViewController {
             
         } else if sender == btnDelete{
             
-            let deleteAct = UIAlertAction(title: "Delete", style: .destructive) { (_ action) in
+            let deleteAct = UIAlertAction(title: localize(str: "delete_txt"), style: .destructive) { (_ action) in
                 self.deleteNote()
                 self.navigationController?.popViewController(animated: true)
             }
-            let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let cancelAct = UIAlertAction(title: localize(str: "cancel_txt"), style: .default, handler: nil)
             
-            Alert.shared.ShowAlert(title: "Are you sure you want to delete this note ?", message: "", in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
+            Alert.shared.ShowAlert(title: localize(str: "sure_to_delete_title"), message: "", in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
             
         }
     }
