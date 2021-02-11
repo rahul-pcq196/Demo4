@@ -20,7 +20,8 @@ class CategoryListViewController: UIViewController {
         super.viewDidLoad()
 
         // register tableview cell
-        tblCategory.register(UINib(nibName: K.categoryTblCellNibName, bundle: .main), forCellReuseIdentifier: K.categoryTblCellIdentifire)
+        let cellNib = UINib(nibName: K.categoryTblCellNibName, bundle: .main)
+        tblCategory.register(cellNib, forCellReuseIdentifier: K.categoryTblCellIdentifire)
         
         // set Add button in navigation bar
         let addBarButtonItem = UIBarButtonItem(image: UIImage.add, style: .done, target: self, action: #selector(self.addCategory))
@@ -83,6 +84,30 @@ class CategoryListViewController: UIViewController {
         }
     }
     
+    // to delete perticular category
+    func deleteCategory(at index: Int){
+        
+        let category = self.categories?[index]
+        
+        let request: NSFetchRequest<Notes> = Notes.fetchRequest()
+        request.predicate = NSPredicate(format: "parentCategory.name MATCHES %@", category?.name ?? "")
+        
+        do {
+            let notes = try managedContext.fetch(request)
+            for note in notes {
+                managedContext.delete(note)
+            }
+            
+        }catch {
+            print("Error")
+        }
+        
+        self.managedContext.delete(category!)
+        self.categories?.remove(at: index)
+        self.saveData()
+        
+    }
+    
     // to configure alertview with text fields
     func presentAlertWithTF(){
         
@@ -136,6 +161,23 @@ extension CategoryListViewController: UITableViewDelegate, UITableViewDataSource
         let vc = Util.getStoryboard().instantiateViewController(withIdentifier: K.notesListViewControllerId) as! NotesListViewController
         vc.selectedCategory = self.categories?[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            
+            let deleteAct = UIAlertAction(title: "Delete", style: .destructive) { (_ action) in
+                
+                self.deleteCategory(at: indexPath.row)
+                self.tblCategory.deleteRows(at: [indexPath], with: .automatic)
+            }
+            let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            
+            Alert.shared.ShowAlert(title: "Sure to delete ?", message: "This category may contains Note(s).", in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
+            
+            
+        }
     }
     
 }

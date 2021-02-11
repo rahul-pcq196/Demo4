@@ -24,7 +24,8 @@ class NotesListViewController: UIViewController {
         self.title = selectedCategory?.name
         
         // register tableview cell
-        tblNotes.register(UINib(nibName: K.noteTblCellNibName, bundle: .main), forCellReuseIdentifier: K.noteTblCellIdentifire)
+        let cellNib = UINib(nibName: K.noteTblCellNibName, bundle: .main)
+        tblNotes.register(cellNib, forCellReuseIdentifier: K.noteTblCellIdentifire)
         
         // set Add button in navigation bar
         let addBarButtonItem = UIBarButtonItem(image: UIImage.add, style: .done, target: self, action: #selector(self.addNote))
@@ -35,6 +36,10 @@ class NotesListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.fetchData()
+        
+        
+        //MARK: - Tmp
+        self.fetchAllNotes()
     }
     
     @objc func addNote(){
@@ -58,6 +63,22 @@ class NotesListViewController: UIViewController {
             print("Error")
         }
         
+    }
+    
+    func fetchAllNotes(){
+        
+        do {
+            
+            let allnotes = try managedContext.fetch(Notes.fetchRequest()) as! [Notes]
+            for note in allnotes{
+                print(note.title as Any)
+            }
+            
+        } catch let error as NSError {
+            
+            print("Could not fetch. \(error), \(error.userInfo)")
+            
+        }
     }
     
 }
