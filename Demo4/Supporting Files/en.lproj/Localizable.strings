@@ -12,4 +12,6 @@
 "enter_category_name" = "Enter category name";
 
 "delete_txt" =  "Delete";
-"sure_to_delete_title" = "Are you sure you want to delete this note ?";
+"sure_to_delete_title" = "Sure to delete ?";
+"sure_to_delete_msg" = "Are you sure you want to delete this note ?";
+"this_category_may_contains_notes_msg" = "This category may contains Note(s).";

@@ -55,7 +55,7 @@ class EditNoteViewController: UIViewController {
             }
             let cancelAct = UIAlertAction(title: localize(str: "cancel_txt"), style: .default, handler: nil)
             
-            Alert.shared.ShowAlert(title: localize(str: "sure_to_delete_title"), message: "", in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
+            Alert.shared.ShowAlert(title: localize(str: "sure_to_delete_msg"), message: "", in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
             
         }
     }

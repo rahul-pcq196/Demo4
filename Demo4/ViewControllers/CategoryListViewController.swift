@@ -139,7 +139,6 @@ class CategoryListViewController: UIViewController {
         self.present(alertWithTF!, animated: true, completion: nil)
     }
     
-   
 }
 
 // MARK: - Table view configurations
@@ -167,14 +166,14 @@ extension CategoryListViewController: UITableViewDelegate, UITableViewDataSource
         
         if editingStyle == .delete{
             
-            let deleteAct = UIAlertAction(title: "Delete", style: .destructive) { (_ action) in
+            let deleteAct = UIAlertAction(title: localize(str: "delete_txt"), style: .destructive) { (_ action) in
                 
                 self.deleteCategory(at: indexPath.row)
                 self.tblCategory.deleteRows(at: [indexPath], with: .automatic)
             }
-            let cancelAct = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let cancelAct = UIAlertAction(title: localize(str: "cancel_txt"), style: .default, handler: nil)
             
-            Alert.shared.ShowAlert(title: "Sure to delete ?", message: "This category may contains Note(s).", in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
+            Alert.shared.ShowAlert(title: localize(str: "sure_to_delete_title"), message: localize(str: "this_category_may_contains_notes_msg"), in: self, withAction: [cancelAct, deleteAct], addCloseAction: false)
             
             
         }
